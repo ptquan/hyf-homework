@@ -33,26 +33,32 @@ function generateCars(numberOfCars) {
 }
 console.log(generateCars(10));
 
-//(car => car.speed > 30 && car.speed < 60)
-const lowSpeed = generateCars(10).filter(function(x) {
+//1.1 Cars with speeds between 30 and 60
+
+ const lowSpeed = generateCars(10).filter(function(x) {
     return x.speed > 30 && x.speed <60;
-    
 });
-console.log(lowSpeed);
-/* arrow function 
-    let lowSpeed = generateCars(10).filter(x => x.speed >30 && x.speed <60;)
- */
- /* link to html
-const show = lowSpeed;
-document.getElementById("showCar").innerHTML = show; */
+//1.2 The makes of the cars that are not lightyellow, so the array is going to look like this: ['BMW', 'Fiat'] etc . filter, then map.
 
- //1.2 The makes of the cars that are not lightyellow, so the array is going to look like this: ['BMW', 'Fiat'] etc
- //filter , maping, sort ??
- 
- const omg = generateCars(10).filter(y => y.color !== 'lightyellow');
+const omg = generateCars(10).filter(y => y.color !== 'lightyellow');
 
-//const omg.map(y => y.make);
+const antiLightYellowFan = omg.map(z => z.make);
+console.log(antiLightYellowFan);
 
-console.log(omg); // not done yet!
+//1.3: Lets change the cars array so it can be read by a danish person 
+//generateCars(numberOfCars);
 
-//
+function changeLanguage(obj) {
+    const danish = {};
+    danish['maerke'] = obj.make;
+    danish['fart'] = obj.speed;
+    danish['farve'] = obj.color;
+    return danish;
+};
+const sprog = generateCars(10).map(changeLanguage);
+console.log(sprog);
+
+//style
+function changeColor() {
+    document.getElementById("body").style.backgroundColor = "lightblue";
+}
