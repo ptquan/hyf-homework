@@ -49,7 +49,7 @@ console.log(antiLightYellowFan);
 //generateCars(numberOfCars);
 
 function changeLanguage(obj) {
-    const danish = {};
+    //const danish = {};
     danish['maerke'] = obj.make;
     danish['fart'] = obj.speed;
     danish['farve'] = obj.color;
